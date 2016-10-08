@@ -50,3 +50,53 @@ select distinct City from Station where mod(ID,2)=0;
 ```SQL
 select count(City)-count(distinct City) from Station;
 ```
+
+
+##Weather Observation Station 5
+```SQL
+(select City,length(City) from Station order by length(City) asc,City asc limit 1) 
+union 
+(select City,length(City) from Station order by length(City) desc,City asc limit 1);
+```
+
+
+##Weather Observation Station 6
+```SQL
+select distinct City from Station where City regexp '^[aeiou]';
+```
+
+
+##Weather Observation Station 7
+```SQL
+select distinct City from Station where City regexp '[aeiou]$';
+```
+
+
+##Weather Observation Station 8
+```SQL
+select distinct City from Station where City regexp '^[aeiou].*[aeiou]$';
+```
+
+
+##Weather Observation Station 9
+```SQL
+select distinct City from Station where City regexp '^[^aeiou]';
+```
+
+
+##Weather Observation Station 10
+```SQL
+select distinct City from Station where City regexp '[^aeiou]$';
+```
+
+
+##Weather Observation Station 11
+```SQL
+select distinct City from Station where City regexp '^[^aeiou]' or City regexp '[^aeiou]$';
+```
+
+
+##Weather Observation Station 12
+```SQL
+select distinct City from Station where City rlike '^[^aeiou].*[^aeiou]$';
+```
