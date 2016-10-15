@@ -98,7 +98,6 @@ public class AddBook extends ActionSupport
 		String driver = "com.mysql.jdbc.Driver";
 		String username = MySQL_user;
 		String password = MySQL_pass;
-		//System.getenv("MYSQL_HOST_S"); 为从库，只读
 		String dbUrl = String.format("jdbc:mysql://%s:%s/%s?characterEncoding=utf8&useSSL=true", MYSQL_HOST, MYSQL_PORT, MYSQL_DB);
 		
 		try {
