@@ -1,43 +1,33 @@
 Node* SortedInsert(Node *head,int data)
 {
     // Complete this function
-   // Do not write the main method. 
+   // Do not write the main method.
+    Node *temp = new Node();
+    temp->data = data;
     if(head == NULL)
     {
-        Node *temp = new Node();
-        temp->data = data;
-        temp->prev = temp->next = NULL;
-        head = temp;
-        return head;
+        temp->prev = NULL;
+        temp->next = NULL;
+        return temp;
     }
-    Node *node = head;
-    while(node != NULL)
+    if(head->data >= data)
     {
-        if(data <= node->data)
-       {
-           Node *p = new Node();
-           p->data = data;
-           p->prev = node->prev;
-           p->next = node;
-           node->prev = p;
-           if(p->prev == NULL)
-               return p;
-           else
-           {
-               p->prev->next = p;
-               return head;
-           }
-           if(node->next == NULL)
-           {
-              Node *q = new Node();
-              q->data = data;
-              q->prev = node;
-              q->next = NULL;
-              node->next = q;
-              break;
-           }
-        }
-        node = node->next;
+        temp->next = head;
+        temp->prev = NULL;
+        head->prev = temp;
+        head = temp;
+    }
+    else
+    {
+        Node *node = new Node();
+        node = head;
+        while(node->next != NULL && node->next->data < data)
+            node = node->next;
+        temp->prev = node;
+        temp->next = node->next;
+        if(node->next != NULL)
+            node->next->prev = temp;
+        node->next = temp;
     }
     return head;
 }
