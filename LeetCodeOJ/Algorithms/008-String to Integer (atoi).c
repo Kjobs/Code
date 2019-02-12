@@ -18,3 +18,25 @@ int myAtoi(char* str){
 	}
 	return res*flag;
 }
+
+//other code runtime:8ms
+int myAtoi(char* str){
+	if((str[0]<48 || str[0]>57) && !(str[0] == ' ' || str[0] == '+' || str[0] == '-')) return 0;
+	int res=0,flag=1;
+	char *p=str;
+	while(*p==' ' || *p=='\t' || *p=='\n') p++;
+	if(*p<'0' && *p>'9') return res;
+	char *s;
+	if(*p=='-' || *p=='+'){
+		flag=(*p=='+')?1:-1;
+		p++;
+	}
+	s=p;
+	while(*s>='0' && *s<='9'){
+		if(res>INT_MAX/10 || (res==INT_MAX/10 && (*s-'0')>7)){
+			return (flag==1)?INT_MAX:INT_MIN;
+		}
+		res=res*10+(*s++ -'0');
+	}
+	return res*flag;
+}
