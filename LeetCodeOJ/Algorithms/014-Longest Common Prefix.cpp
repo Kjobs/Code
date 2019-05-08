@@ -16,7 +16,8 @@ public:
             for (int j = 1; j < vecLength; j++) {
                 if (ch != strs[j][i]) return res;
             }
-            res = res + ch;
+            //res = res + ch;
+            res.push_back(ch);
         }
         return res;
     }
