@@ -25,4 +25,4 @@ public:
     }
 };
 
-// beats 99.8% of cpp submitions
+// Runtime beats 99.8% of cpp submitions.
