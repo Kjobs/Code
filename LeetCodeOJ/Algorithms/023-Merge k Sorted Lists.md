@@ -1,3 +1,4 @@
+```java
 class Solution {
     public ListNode merge2Lists(ListNode l1, ListNode l2) {
         ListNode node = new ListNode(-1);
@@ -46,3 +47,5 @@ class Solution {
 }
 
 /* 分治法：类似于归并排序，时间复杂度为O(N*logk) */
+
+```
