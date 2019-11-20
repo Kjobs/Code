@@ -40,15 +40,20 @@ class Solution {
         int pLen = pattern.length();
         int[] next = new int[pLen];
         next[0] = 0;
-        for (int i = 1; i < pLen; i++) {
-            int index = next[i - 1];
-            while (index > 0 && pattern.charAt(index) != pattern.charAt(i)) {
-                index = next[index - 1];
-            }
-            if (pattern.charAt(index) == pattern.charAt(i)) {
-                next[i] = next[i - 1] + 1;
+        int index = 0;
+        int i = 1;
+        while (i < pLen) {
+            if (pattern.charAt(i) == pattern.charAt(index)) {
+                index++;
+                next[i] = index;
+                i++;
             } else {
-                next[i] = 0;
+                if (index != 0) {
+                    index = next[index - 1];
+                } else {
+                    next[i] = index;
+                    i++;
+                }
             }
         }
         return next;
