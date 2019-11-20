@@ -15,22 +15,22 @@ class Solution {
         }
         int[] next = getNext(needle);
         int i = 0;
+        int j = 0;
 
-        while (i <= hLen - nLen) {
-            boolean flag = true;
-            for (int j = 0; j < nLen; j++) {
-                if (needle.charAt(0) != haystack.charAt(i)) {
-                    flag = false;
-                    i++;
-                    break;
-                } else if (needle.charAt(j) != haystack.charAt(i + j)) {
-                    flag = false;
-                    i = i + j - next[j - 1];
-                    break;
-                }
+        while (i < hLen) {
+            if (needle.charAt(j) == haystack.charAt(i)) {
+                i++;
+                j++;
             }
-            if (flag) {
-                return i;
+            if (j == nLen) {
+                return i - j;
+                // j = next[j - 1];
+            } else if (i < hLen && needle.charAt(j) != haystack.charAt(i)) {
+                if (j != 0) {
+                    j = next[j - 1];
+                } else {
+                    i++;
+                }
             }
         }
         return -1;
