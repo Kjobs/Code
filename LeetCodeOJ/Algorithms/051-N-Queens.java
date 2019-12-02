@@ -15,6 +15,7 @@ class Solution {
         }
     }
 
+    // 实现方法
     private void helper(List<List<String>> res, char[][] board, int row) {
         if (row == board.length) {
             res.add(generateBoard(board));
@@ -29,6 +30,7 @@ class Solution {
         }
     }
 
+    // 规则校验函数
     private boolean isValid(char[][] board, int row, int col) {
         for (int i = 0; i < row; i++) {
             if (board[i][col] == 'Q') return false;
@@ -45,15 +47,16 @@ class Solution {
         return true;
     }
 
+    // 根据board表生成一个返回结果字符串表
     private List<String> generateBoard(char[][] board) {
         List<String> res = new ArrayList<>();
         for (int i = 0; i < board.length; i++) {
             StringBuilder sb = new StringBuilder();
-            for (int j = 0; j < board.length; j++) {
-                sb.append(board[i][j]);
-            }
+            sb.append(board[i]);
             res.add(sb.toString());
         }
         return res;
     }
 }
+
+/* 回溯法 */
