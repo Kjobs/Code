@@ -1,4 +1,9 @@
 class Solution {
+    /**
+     * step1: 从右向左，找到第一个非升序的（即nums[i]>nums[i-1]）的元素下标，p=i-1；
+     * step2: 从右向左，找到第一个大于nums[p]的元素下标q；
+     * step3: 
+     */
     public void nextPermutation(int[] nums) {
         int numsLen = nums.length;
         for (int i = numsLen - 1; i > 0; i--) {
