@@ -3,8 +3,8 @@ class Solution {
      * step1: 从右向左，找到第一个非升序的（即nums[i]>nums[i-1]）的元素下标，p=i-1；
      * step2: 从右向左，找到第一个大于nums[p]的元素下标q；
      * step3: 调换nums[p]和nums[q]；
-     * step3: 将p后面的元素颠倒顺序
-     * 特殊情况：已经是从大到小的顺序排列的数组，应返回其逆序（从小到大）。
+     * step4: 将p后面的元素颠倒顺序
+     * 特殊情况：已经是从大到小的顺序排列的数组，即找不到nums[i]>nums[i-1]，应返回其逆序（从小到大）。
      */
     public void nextPermutation(int[] nums) {
         int numsLen = nums.length;
