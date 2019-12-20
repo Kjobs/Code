@@ -16,4 +16,4 @@ class Solution {
 }
 ```
 
-/* 采用贪心算法实现（参考[博客](https://www.cnblogs.com/lichen782/p/leetcode_Jump_Game_II.html)） */
+采用贪心算法实现（参考[博客](https://www.cnblogs.com/lichen782/p/leetcode_Jump_Game_II.html)）
