@@ -1,4 +1,5 @@
 动态规划：时间复杂度为O(n)
+```java
 class Solution {
     public int maxSubArray(int[] nums) {
         int max = Integer.MIN_VALUE;
@@ -13,6 +14,7 @@ class Solution {
         return max;
     }
 }
+```
 
 分治法（二分）：时间复杂度为O(nlog(n))
 ```java
