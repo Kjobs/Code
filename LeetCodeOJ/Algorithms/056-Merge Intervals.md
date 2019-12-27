@@ -49,11 +49,13 @@ class Solution {
             List<Integer> intervalsI = new LinkedList<>();
             intervalsI.add(intX);
             intervalsI.add(intY);
+            // 区间小于最小结果区间
             if (res.size() == 0 || intY < res.get(0).get(0)) {
                 res.add(0, intervalsI);
                 continue;
             }
             int last = res.size() - 1;
+            // 区间大于最大区间
             if (intX > res.get(last).get(1)) {
                 res.add(intervalsI);
                 continue;
@@ -62,10 +64,12 @@ class Solution {
             while (j >= 0) {
                 int resX = res.get(j).get(0);
                 int resY = res.get(j).get(1);
+                // 合并后大于最大区间
                 if (intX > resY) {
                     j++;
                     break;
                 }
+                // 发生区间重复，删除结果区间中的重复区间
                 if ((intX >= resX && intX <= resY) || (intY >= resX && intY <= resY) ||
                         (resX >= intX && resX <= intY) || (resY >= intX && resY <= intY)) {
                     res.remove(j);
@@ -74,10 +78,12 @@ class Solution {
                     j--;
                     continue;
                 } else if (j > 0 && intX > res.get(j - 1).get(1) && intY < resX) {
+                    // 区间在结果集中两个区间之间
                     break;
                 }
                 j--;
             }
+            // 将区间加入结果集
             List<Integer> tmp = new LinkedList<>();
             tmp.add(intX);
             tmp.add(intY);
