@@ -1,4 +1,4 @@
-/* 循环节点的问题，依旧采用双指针可以较有效解决 */
+/* 循环节点的问题，依旧采用快慢指针可以较有效解决 */
 public class Solution {
     public boolean hasCycle(ListNode head) {
         if (head == null) return false;
